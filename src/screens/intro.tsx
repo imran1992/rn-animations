@@ -1,19 +1,13 @@
 /**
  * @format
  */
-
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {
-  PanGestureHandler,
-  PanGestureHandlerGestureEvent,
-} from 'react-native-gesture-handler';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
   withRepeat,
-  useAnimatedGestureHandler,
 } from 'react-native-reanimated';
 
 const SIZE = 100.0;
@@ -37,7 +31,7 @@ const App = () => {
   useEffect(() => {
     progress.value = withRepeat(withSpring(0.5), -1, true);
     scale.value = withRepeat(withSpring(1), -1, true);
-  }, []);
+  }, [progress, scale]);
 
   return (
     <View style={styles.container}>
